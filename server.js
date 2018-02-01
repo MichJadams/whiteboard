@@ -19,7 +19,10 @@ io.on('connection', function (socket) {
 
     socket.on('drawing', function(start, end, color){
         console.log(start, end, color)
+        socket.broadcast.emit('message', start, end, color)
     })
+
+
 
     socket.on('disconnect', function () {
         console.log('Bye ):')

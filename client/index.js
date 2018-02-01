@@ -19,6 +19,11 @@ whiteboard.on('draw', function(start, end, color){
   socket.emit('drawing', start, end, color)
 })
 
+socket.on('message', function(start, end, color){
+  draw(start, end, color)
+})
+
+
 
 // whiteboard.on('draw', (event) => {
 
