@@ -17,6 +17,10 @@ io.on('connection', function (socket) {
     console.log('A new client has connected!');
     console.log(socket.id);
 
+    socket.on('drawing', function(start, end, color){
+        console.log(start, end, color)
+    })
+
     socket.on('disconnect', function () {
         console.log('Bye ):')
         console.log(socket.id)

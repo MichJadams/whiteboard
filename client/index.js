@@ -7,14 +7,17 @@ import whiteboard, {draw} from './whiteboard'
 // draw([0, 0], [250, 250], 'red', true)
 
 
-
 var socket = io(window.location.origin)
 
 socket.on('connect', function () {
   console.log('I have made a persistent two-way connection to the server')
 })
 
-
+// 'draw' is a keyword like 'click'
+// 'drawing' is just what we want to name it -> then the server listens for it in server.js
+whiteboard.on('draw', function(start, end, color){
+  socket.emit('drawing', start, end, color)
+})
 
 
 // whiteboard.on('draw', (event) => {
